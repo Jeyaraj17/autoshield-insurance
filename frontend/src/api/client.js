@@ -2,6 +2,7 @@ import axios from "axios";
 
 const client = axios.create({
   baseURL: "https://autoshield-insurance.onrender.com",
+  timeout: 60000,
 });
 
 client.interceptors.request.use((config) => {

@@ -27,7 +27,7 @@ const AdminQueries = () => {
   return (
     <div className="admin-queries-container">
       <h2 className="admin-queries-title">User Queries</h2>
-      <div className="admin-queries-form">
+      <form className="admin-queries-form" onSubmit={(e) => { e.preventDefault(); sendReply(); }}>
         <div className="admin-queries-field">
           <label className="admin-queries-label">Reply</label>
           <input
@@ -38,13 +38,13 @@ const AdminQueries = () => {
           />
         </div>
         <button 
+          type="submit"
           className="admin-queries-button" 
-          onClick={sendReply} 
           disabled={!selectedId}
         >
           Send Reply
         </button>
-      </div>
+      </form>
       {rows.length === 0 ? (
         <div className="admin-queries-empty">No queries found</div>
       ) : (
