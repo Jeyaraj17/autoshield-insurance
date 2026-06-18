@@ -67,7 +67,8 @@ public class SecurityConfig {
             configuration.setAllowedOrigins(List.of(
                 "http://localhost:3000",
                 "http://localhost:3001",
-                "https://autoshield-insurance.vercel.app"
+                "https://autoshield-insurance.vercel.app",
+                "https://autoshield-insurance-git-main-jeyaraj17s-projects.vercel.app"
             ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
