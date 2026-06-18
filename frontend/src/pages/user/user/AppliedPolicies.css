@@ -1,0 +1,43 @@
+.applied-root {
+  padding: 32px 0;
+}
+
+.applied-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.applied-title {
+  color: var(--primary);
+}
+
+.applied-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.applied-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.applied-badge {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-download {
+  width: 100%;
+  background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+  color: #fff;
+}
+.btn-download:hover {
+  filter: brightness(1.05);
+}
+
+.applied-error {
+  border-color: #fecaca;
+  color: #991b1b;
+}

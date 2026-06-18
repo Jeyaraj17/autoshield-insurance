@@ -1,0 +1,225 @@
+/* AdminDashboard.css */
+.admin-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.admin-appbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, var(--primary-dark), var(--primary));
+  color: white;
+  box-shadow: var(--shadow-md);
+  height: 64px;
+}
+
+.admin-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 100%;
+}
+
+.admin-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.admin-logout-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.admin-logout-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.admin-drawer {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 240px;
+  height: calc(100vh - 64px);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  z-index: 999;
+  transition: width 0.3s ease;
+}
+
+.admin-drawer.collapsed {
+  width: 60px;
+}
+
+.admin-drawer.collapsed .admin-drawer-link {
+  padding: 16px 12px;
+  justify-content: center;
+}
+
+.admin-drawer.collapsed .admin-drawer-icon {
+  margin-right: 0;
+  font-size: 20px;
+}
+
+.admin-drawer.collapsed .admin-drawer-text {
+  display: none;
+}
+
+.admin-drawer-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.admin-drawer-item {
+  width: 100%;
+}
+
+.admin-drawer-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px 24px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  outline: none !important;
+}
+
+.admin-drawer-link:focus {
+  outline: none !important;
+}
+
+.admin-drawer-icon {
+  font-size: 18px;
+  margin-right: 12px;
+  min-width: 20px;
+  color: var(--primary);
+}
+
+.admin-drawer-text {
+  flex: 1;
+}
+
+.admin-drawer-link:hover {
+  background: rgba(15, 76, 129, 0.08);
+  color: var(--primary);
+}
+
+.admin-drawer-link.active {
+  background: rgba(15, 76, 129, 0.12);
+  color: var(--primary);
+  border-right: 3px solid var(--primary);
+}
+
+.admin-main {
+  flex: 1;
+  padding: 24px;
+  margin-top: 64px;
+  margin-left: 240px;
+  background: var(--background);
+  min-height: calc(100vh - 64px);
+  transition: margin-left 0.3s ease;
+}
+
+.admin-main.expanded {
+  margin-left: 60px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .admin-drawer {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .admin-drawer.open {
+    transform: translateX(0);
+  }
+  
+  .admin-main {
+    margin-left: 0;
+    padding: 16px;
+  }
+  
+  .admin-toolbar {
+    padding: 0 16px;
+  }
+  
+  .admin-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile Menu Button */
+.admin-menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 12px;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+.admin-collapse-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 12px;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  margin-right: 16px;
+  transition: all 0.2s ease;
+}
+
+.admin-collapse-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 900px) {
+  .admin-menu-btn {
+    display: block;
+  }
+  
+  .admin-collapse-btn {
+    display: none;
+  }
+}
+
+/* Mobile Overlay */
+.admin-drawer-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+@media (max-width: 900px) {
+  .admin-drawer-overlay.open {
+    display: block;
+  }
+}

@@ -1,0 +1,209 @@
+/* CreatePolicy.css */
+.create-policy-container {
+  background: var(--surface);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 2rem;
+  border: 1px solid var(--border);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.create-policy-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.create-policy-description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.create-policy-alert {
+  padding: 12px 16px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.create-policy-alert.success {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+}
+
+.create-policy-alert.error {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.create-policy-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.create-policy-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .create-policy-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.create-policy-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.create-policy-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.create-policy-label {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.create-policy-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--border-radius-md);
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out;
+  background: var(--surface);
+}
+
+.create-policy-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
+}
+
+.create-policy-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--border-radius-md);
+  font-size: 1rem;
+  background: var(--surface);
+  cursor: pointer;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.create-policy-select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
+}
+
+.create-policy-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--border-radius-md);
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out;
+  background: var(--surface);
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.create-policy-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
+}
+
+.create-policy-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 1.5rem 0;
+}
+
+.create-policy-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.create-policy-button {
+  width: 100%;
+  padding: 12px 24px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.create-policy-button:hover:not(:disabled) {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.create-policy-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.create-policy-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.create-policy-loading {
+  width: 24px;
+  height: 24px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.create-policy-helper-text {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.create-policy-error-text {
+  font-size: 0.75rem;
+  color: var(--error);
+  margin-top: 0.25rem;
+}
+
+.create-policy-input.error {
+  border-color: var(--error);
+}
+
+.create-policy-select.error {
+  border-color: var(--error);
+}

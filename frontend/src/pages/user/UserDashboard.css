@@ -1,0 +1,225 @@
+/* UserDashboard.css */
+.user-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.user-appbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, var(--primary-dark), var(--primary));
+  color: white;
+  box-shadow: var(--shadow-md);
+  height: 64px;
+}
+
+.user-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 100%;
+}
+
+.user-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.user-logout-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.user-logout-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.user-drawer {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 240px;
+  height: calc(100vh - 64px);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  z-index: 999;
+  transition: width 0.3s ease;
+}
+
+.user-drawer.collapsed {
+  width: 60px;
+}
+
+.user-drawer.collapsed .user-drawer-link {
+  padding: 16px 12px;
+  justify-content: center;
+}
+
+.user-drawer.collapsed .user-drawer-icon {
+  margin-right: 0;
+  font-size: 20px;
+}
+
+.user-drawer.collapsed .user-drawer-text {
+  display: none;
+}
+
+.user-drawer-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.user-drawer-item {
+  width: 100%;
+}
+
+.user-drawer-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px 24px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  outline: none !important;
+}
+
+.user-drawer-link:focus {
+  outline: none !important;
+}
+
+.user-drawer-icon {
+  font-size: 18px;
+  margin-right: 12px;
+  min-width: 20px;
+  color: var(--primary);
+}
+
+.user-drawer-text {
+  flex: 1;
+}
+
+.user-drawer-link:hover {
+  background: rgba(15, 76, 129, 0.08);
+  color: var(--primary);
+}
+
+.user-drawer-link.active {
+  background: rgba(15, 76, 129, 0.12);
+  color: var(--primary);
+  border-right: 3px solid var(--primary);
+}
+
+.user-main {
+  flex: 1;
+  padding: 24px;
+  margin-top: 64px;
+  margin-left: 240px;
+  background: var(--background);
+  min-height: calc(100vh - 64px);
+  transition: margin-left 0.3s ease;
+}
+
+.user-main.expanded {
+  margin-left: 60px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .user-drawer {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .user-drawer.open {
+    transform: translateX(0);
+  }
+  
+  .user-main {
+    margin-left: 0;
+    padding: 16px;
+  }
+  
+  .user-toolbar {
+    padding: 0 16px;
+  }
+  
+  .user-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile Menu Button */
+.user-menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 12px;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+.user-collapse-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 12px;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  margin-right: 16px;
+  transition: all 0.2s ease;
+}
+
+.user-collapse-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 900px) {
+  .user-menu-btn {
+    display: block;
+  }
+  
+  .user-collapse-btn {
+    display: none;
+  }
+}
+
+/* Mobile Overlay */
+.user-drawer-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+@media (max-width: 900px) {
+  .user-drawer-overlay.open {
+    display: block;
+  }
+}

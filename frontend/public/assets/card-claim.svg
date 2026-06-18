@@ -1,0 +1,10 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#F3F4F6"/>
+  <rect x="100" y="120" width="200" height="120" rx="15" fill="#10B981"/>
+  <circle cx="200" cy="160" r="25" fill="white"/>
+  <path d="M190 160l8 8 16-16" stroke="#10B981" stroke-width="3" fill="none"/>
+  <rect x="120" y="200" width="160" height="25" rx="5" fill="#FF7A59"/>
+  <text x="200" y="218" text-anchor="middle" fill="white" font-family="Arial" font-size="12" font-weight="bold">Claim Settlement</text>
+  <rect x="130" y="240" width="140" height="20" rx="5" fill="#6B7280"/>
+  <text x="200" y="255" text-anchor="middle" fill="white" font-family="Arial" font-size="10">Fast Processing</text>
+</svg>

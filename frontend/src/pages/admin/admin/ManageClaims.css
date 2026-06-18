@@ -1,0 +1,96 @@
+.manage-root {
+  padding: 24px;
+}
+.manage-title {
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+.manage-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.manage-table th,
+.manage-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.manage-table thead th {
+  background: #f3f6fb;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.manage-actions {
+  display: flex;
+  gap: 8px;
+}
+.btn-approve {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-approve:hover {
+  filter: brightness(1.05);
+}
+.btn-reject {
+  background: #fff;
+  border: 1px solid #ef4444;
+  color: #991b1b;
+}
+.btn-reject:hover {
+  background: #fef2f2;
+}
+.status-muted {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.policy-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.policy-form-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.policy-form-grid label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.policy-form-grid input,
+.policy-form-grid textarea {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.policy-form-grid label.full {
+  grid-column: 1 / -1;
+}
+
+.between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}

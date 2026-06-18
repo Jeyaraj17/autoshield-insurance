@@ -1,0 +1,8 @@
+<svg width="600" height="300" viewBox="0 0 600 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="300" fill="#E5E7EB"/>
+  <rect x="50" y="50" width="500" height="200" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2"/>
+  <circle cx="300" cy="150" r="30" fill="#0F4C81"/>
+  <path d="M290 140l8 8 16-16" stroke="white" stroke-width="3" fill="none"/>
+  <text x="300" y="200" text-anchor="middle" fill="#6B7280" font-family="Arial" font-size="14">Map Location</text>
+  <text x="300" y="220" text-anchor="middle" fill="#6B7280" font-family="Arial" font-size="12">123, Insurance Ave, Chennai, Tamil Nadu</text>
+</svg>

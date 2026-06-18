@@ -1,0 +1,23 @@
+.track-root {
+  padding: 32px 0;
+}
+.track-header {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.track-title {
+  color: var(--primary);
+}
+.track-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.track-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+.track-badge {
+  font-weight: 600;
+}
