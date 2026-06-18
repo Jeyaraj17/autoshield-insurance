@@ -1,12 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate, Navigate } from "react-router-dom";
 import client from "../api/client";
-import { Navigate } from "react-router-dom";
 
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const load = async () => {
     try {
@@ -31,7 +32,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     localStorage.removeItem("token");
     setUser(null);
-    window.location.replace("/");
+    navigate("/");
   };
 
   const value = { user, setUser, reload: load, logout };
