@@ -83,7 +83,7 @@
   box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
 }
 
-.signup-input:invalid {
+.signup-input.error {
   border-color: var(--error);
 }
 

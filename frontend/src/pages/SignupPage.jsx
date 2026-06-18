@@ -156,7 +156,7 @@ const SignupPage = () => {
           <div className="signup-field">
             <label className="signup-label">Full Name</label>
             <input
-              className="signup-input"
+              className={`signup-input${validationErrors.name ? " error" : ""}`}
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -169,7 +169,7 @@ const SignupPage = () => {
           <div className="signup-field">
             <label className="signup-label">Email Address</label>
             <input
-              className="signup-input"
+              className={`signup-input${validationErrors.email ? " error" : ""}`}
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -186,7 +186,7 @@ const SignupPage = () => {
             <label className="signup-label">Password</label>
             <div className="signup-input-group">
               <input
-                className="signup-input"
+                className={`signup-input${validationErrors.password ? " error" : ""}`}
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -234,7 +234,7 @@ const SignupPage = () => {
             <label className="signup-label">Confirm Password</label>
             <div className="signup-input-group">
               <input
-                className="signup-input"
+                className={`signup-input${validationErrors.confirmPassword ? " error" : ""}`}
                 type={showConfirmPassword ? "text" : "password"}
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}

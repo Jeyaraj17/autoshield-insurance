@@ -80,7 +80,7 @@ const LoginPage = () => {
           <div className="login-field">
             <label className="login-label">Email</label>
             <input
-              className="login-input"
+              className={`login-input${error ? " error" : ""}`}
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -90,7 +90,7 @@ const LoginPage = () => {
           <div className="login-field">
             <label className="login-label">Password</label>
             <input
-              className="login-input"
+              className={`login-input${error ? " error" : ""}`}
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
