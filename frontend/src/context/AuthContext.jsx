@@ -20,8 +20,8 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // Only load user info on initial app load, not after login
-    if (user === null) {
+    const token = localStorage.getItem("token");
+    if (token) {
       load();
     } else {
       setLoading(false);
@@ -29,16 +29,9 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const logout = async () => {
-    try {
-      await client.post("/api/auth/logout");
-    } catch (error) {
-      console.error("Logout error:", error);
-    } finally {
-      setUser(null);
-      if (typeof window !== "undefined") {
-        window.location.replace("/");
-      }
-    }
+    localStorage.removeItem("token");
+    setUser(null);
+    window.location.replace("/");
   };
 
   const value = { user, setUser, reload: load, logout };

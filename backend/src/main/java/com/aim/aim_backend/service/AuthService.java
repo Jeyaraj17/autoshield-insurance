@@ -3,7 +3,6 @@ package com.aim.aim_backend.service;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +12,7 @@ import com.aim.aim_backend.repository.UserRepository;
 import com.aim.aim_backend.web.AuthController.LoginRequest;
 import com.aim.aim_backend.web.AuthController.RegisterRequest;
 
-import jakarta.servlet.http.HttpServletRequest;
+import com.aim.aim_backend.security.JwtUtil;
 
 @Service
 public class AuthService {
@@ -21,11 +20,13 @@ public class AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
+    private final JwtUtil jwtUtil;
 
-    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager) {
+    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager, JwtUtil jwtUtil) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.authenticationManager = authenticationManager;
+        this.jwtUtil = jwtUtil;
     }
 
     public String register(RegisterRequest request) {
@@ -42,18 +43,15 @@ public class AuthService {
         return "Registered successfully";
     }
 
-    public User login(LoginRequest request, HttpServletRequest httpRequest) {
+    public String login(LoginRequest request) {
         try {
-            var authentication = authenticationManager.authenticate(
+            authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
             );
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-            var session = httpRequest.getSession(true);
-            session.setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext());
         } catch (BadCredentialsException ex) {
             throw new RuntimeException("Invalid credentials");
         }
-        return userRepository.findByEmail(request.getEmail()).orElseThrow();
+        return jwtUtil.generateToken(request.getEmail());
     }
 
     public User getCurrentUser(String email) {

@@ -12,7 +12,6 @@ import com.aim.aim_backend.model.Role;
 import com.aim.aim_backend.model.User;
 import com.aim.aim_backend.service.AuthService;
 
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
 @RestController
@@ -42,11 +41,11 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request, HttpServletRequest httpRequest) {
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request) {
         try {
-            User user = authService.login(request, httpRequest);
-            return ResponseEntity
-                    .ok(new LoginResponse(user.getId(), user.getName(), user.getEmail(), user.getRole().name()));
+            String token = authService.login(request);
+            User user = authService.getCurrentUser(request.getEmail());
+            return ResponseEntity.ok(new LoginResponse(user.getId(), user.getName(), user.getEmail(), user.getRole().name(), token));
         } catch (Exception ex) {
             return ResponseEntity.status(401).body(ex.getMessage());
         }
@@ -130,29 +129,21 @@ public class AuthController {
         private String name;
         private String email;
         private String role;
+        private String token;
 
-        public LoginResponse(Long id, String name, String email, String role) {
+        public LoginResponse(Long id, String name, String email, String role, String token) {
             this.id = id;
             this.name = name;
             this.email = email;
             this.role = role;
+            this.token = token;
         }
 
-        public Long getId() {
-            return id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public String getRole() {
-            return role;
-        }
+        public Long getId() { return id; }
+        public String getName() { return name; }
+        public String getEmail() { return email; }
+        public String getRole() { return role; }
+        public String getToken() { return token; }
     }
 
     public static class MeResponse {

@@ -44,7 +44,8 @@ const LoginPage = () => {
         setError("Invalid credentials for selected role");
         return;
       }
-      
+
+      localStorage.setItem("token", res.data.token);
       setUser(res.data);
       navigate(userRole === "ADMIN" ? "/admin" : "/user");
     } catch (err) {
